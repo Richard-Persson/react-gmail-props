@@ -1,6 +1,6 @@
 
 import Searchbar from "./Searchbar";
-function Header(){
+function Header({setCurrentSearch}){
 
    return(<>
       <header className="header">
@@ -13,7 +13,7 @@ function Header(){
             alt="gmail logo"
           />
         </div>
-    <Searchbar/>
+    <Searchbar setCurrentSearch={setCurrentSearch}/>
       </header>
 
 

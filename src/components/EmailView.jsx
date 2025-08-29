@@ -1,14 +1,16 @@
-import backArrow from './assets/icons/back-arrow.png'
-import downloadButton from './assets/icons/download-button.png'
-import rateStarButton from './assets/icons/rate-star-button.png'
-import rubbishButton from './assets/icons/rubbish-bin-delete-button.png'
+import backArrow from '../assets/icons/back-arrow.png'
+import downloadButton from '../assets/icons/download-button.png'
+import rateStarButton from '../assets/icons/rate-star-button.png'
+import rubbishButton from '../assets/icons/rubbish-bin-delete-button.png'
   
-function EmailView(){
+function EmailView(emailClass){
     
+  const baseClass = "email-view"
 
+  console.log(emailClass.emailClass)
     return(<>
     
-  <main className="email-view">
+  <main className={`${baseClass} ${emailClass.emailClass}`}>
         <nav className="email-toolbar">
           <ul>
             <li>

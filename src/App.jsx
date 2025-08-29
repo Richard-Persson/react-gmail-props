@@ -11,10 +11,12 @@ const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
+
 function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [currentSearch, setCurrentSearch] = useState('')
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -43,12 +45,14 @@ function App() {
 
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
+  
 
   return (
     <div className="app">
     
-    <Header/>
+    <Header filteredEmails={filteredEmails} setCurrentSearch={setCurrentSearch}/>
 
+    {console.log(currentSearch)}
     <LeftMenu 
     currentTab={currentTab} 
     setCurrentTab={setCurrentTab}
@@ -61,7 +65,8 @@ function App() {
     <Emails 
     filteredEmails={filteredEmails} 
     toggleRead={toggleRead}
-    toggleStar={toggleStar}/>
+    toggleStar={toggleStar}
+    currentSearch={currentSearch}/>
     </div>
   )
 }
